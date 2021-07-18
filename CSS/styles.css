@@ -30,3 +30,7 @@ input[type=submit]:hover {
     background-color: blueviolet;
     color: #fff;
 }
+
+.label {
+    margin-top: 20px;
+}
