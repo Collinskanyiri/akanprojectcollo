@@ -3,7 +3,7 @@ var akanArray = [{
         "Monday": "Kwadwo",
         "Tuesday": "Kwabena",
         "Wednesday": "Kwaku",
-        "Thurday": "Yaw",
+        "Thursday": "Yaw",
         "Friday": "Kofi",
         "Saturday": "Kwame"
     },
@@ -12,13 +12,22 @@ var akanArray = [{
         "Monday": "Adwoa",
         "Tuesday": "Abenaa",
         "Wednesday": "Akua",
-        "Thurday": "Yaa",
+        "Thursday": "Yaa",
         "Friday": "Afua",
         "Saturday": "Ama"
 
     }
 ]
-var weekDayArray = ["sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+var weekDayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var colorIndex = 0;
+
+function changeDOM() {
+    var doc = document.getElementsByTagName("BODY")[0];
+
+
+}
+
 
 function validateForm() {
     var gender = document.getElementsByName("gender");
@@ -29,6 +38,7 @@ function validateForm() {
     var i = 0;
     document.getElementById("result").innerHTML = "";
     if (mdate.value == "" || mdate.value == null) {
+
         document.getElementById("result").innerHTML += "Day is Required";
         return false;
     } else {
@@ -36,7 +46,6 @@ function validateForm() {
         if (!isNaN(mdate.value)) {
             if (mdate.value <= 0 || mdate.value > 31) {
                 document.getElementById("result").innerHTML += "Invalid Day";
-                return false;
             }
         } else {
             document.getElementById("result").innerHTML += "Day must be a number";
@@ -80,7 +89,7 @@ function validateForm() {
         i++;
     }
     if (!formValid) {
-        document.getElementById("gender")
+        document.getElementById("the-gender").style.color = 'red';
         return false;
     }
 
@@ -142,4 +151,74 @@ function verifyUserBirthday() {
         Math.floor(myear / 400) + Math.floor((31 * m) / 12)) % 7;
 
     return dayOfWeek;
+
+}
+
+function findUserAkanName() {
+    var userDetailsObject = getUserDetails();
+    mGender = userDetailsObject.myGenderValue;
+    userWeekDayIndex = verifyUserBirthday();
+
+
+    var dayOfTheWeek = weekDayArray[userWeekDayIndex];
+
+    if (mGender === "male") {
+
+        var akanArrayObject = akanArray[0];
+
+        for (var key in akanArrayObject) {
+            if (akanArrayObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    akanName = akanArrayObject[key];
+                }
+            }
+        }
+
+    } else if (mGender === "female") {
+        var akanArrayObject = akanArray[1];
+
+        for (var key in akanArrayObject) {
+            if (akanArrayObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    akanName = akanArrayObject[key];
+                }
+            }
+        }
+
+    } else {
+        alert("Error occurred!");
+    }
+
+    var importantDetails = {
+        akanName: akanName,
+        dayOfTheWeek: dayOfTheWeek,
+        mGender: mGender
+
+
+    }
+    return importantDetails;
+
+}
+
+function printUserAkanName() {
+
+    clearInterval(changeDOM);
+    var akanDetails = findUserAkanName();
+    akanName = akanDetails.akanName;
+    dayOfTheWeek = akanDetails.dayOfTheWeek;
+    mGender = akanDetails.mGender;
+
+    var doc = document.getElementsByTagName("BODY")[0];
+    document.getElementById("myAkan").innerHTML = "WOW! We found it.Your Akan name is  " + akanName;
+    document.getElementById("reason").innerHTML = 'Since, You are a ' + mGender + ' born on ' + dayOfTheWeek;
+    document.getElementById("myAkan").style.textDecoration = "underline overline";
+    document.getElementById("myAkan").style.color = 'red';
+    document.getElementById("myAkan").style.fontSize = '45px';
+    document.getElementById("reason").style.fontSize = '45px';
+
+
+}
+
+function clearInput() {
+    window.location.reload();
 }
