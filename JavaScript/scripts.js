@@ -80,7 +80,7 @@ function validateForm() {
         i++;
     }
     if (!formValid) {
-        document.getElementById("gender").style.color = 'red';
+        document.getElementById("gender")
         return false;
     }
 
