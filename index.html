@@ -5,24 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/styles.css">
-    <title>Akan Name</title>
+    <title>Document</title>
 </head>
 
 <body>
     <div class="main">
-        <div id="welcome message">
-            <h1 id="mainheading">What's your Akan Name?</h1>
+        <div id="welcome-message">
+            <h1 id="mheading">Let's find your Akan</h1>
+
         </div>
-        <div id="Welcome Story">
-            <h1>AKAN!</h1>
-            <p id="story">
-                Akan names are derived from Ghanian culture. Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week they were born.
+        <div id="welcome-story">
+            <h1>Akan!</h1>
+            <h3>Explanation</h3>
+            <p>Akan names are derived from Ghanian culture. Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week they were born.
+
             </p>
-            <p id="story">
+            <p>
                 Here are Ghanian day names.
             </p>
-            <h3>Male</h3>
+            <h4>Male</h4>
             <ul>
                 <li>Sunday: Kwasi</li>
                 <li>Monday: Kwadwo</li>
@@ -32,8 +33,9 @@
                 <li>Friday: Kofi</li>
                 <li>Saturday: Kwame</li>
             </ul>
-            <h3>Female</h3>
+            <h4>Female</h4>
             <ul>
+
                 <li>Sunday: Akosua</li>
                 <li>Monday: Adwoa</li>
                 <li>Tuesday: Abenaa</li>
@@ -43,32 +45,41 @@
                 <li>Saturday: Ama</li>
             </ul>
         </div>
+        <div class="date-form">
+
+            <form name="myForm" onsubmit="return aggregateFunctions()">
+
+                <label class="label" id="birthday">Input Your Birthday</label><br>
+                <div id="result"></div><br>
+                <label>Day</label>
+                <input type="text" id="mdate" name="mdate" value="" placeholder="01">
+                <label>Month</label>
+                <input type="text" id="mmonth" name="mmonth" value="" placeholder="12">
+                <label>Year</label>
+                <input type="text" id="myear" name="myear" value="" placeholder="2001">
+                <div id="date"></div>
+
+                <div id="the-gender" class="label">Select Gender</div>
+
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female<br>
+
+
+                <input type="submit" value="SUBMIT">
+                <input type="submit" value="FIND ANOTHER" onClick="clearInput()">
+
+            </form>
+        </div>
+        <div class="output">
+            <div id="myAkan">
+                <h1>Waiting to process your Akan</h1>
+            </div>
+            <div id="reason"></div>
+        </div>
+
     </div>
-    <div class="date-input">
-        <form name="myForm" onsubmit="return aggregateFunctions()">
 
-            <label class="label" id="birthday">Input Your Birthday</label><br>
-            <div id="result"></div><br>
-            <label>Day</label>
-            <input type="text" id="mdate" name="mdate" value="" placeholder="01">
-            <label>Month</label>
-            <input type="text" id="mmonth" name="mmonth" value="" placeholder="12">
-            <label>Year</label>
-            <input type="text" id="myear" name="myear" value="" placeholder="2001">
-            <div id="date"></div>
-
-            <div id="the-gender" class="label">Select Gender</div>
-
-            <input type="radio" name="gender" value="male">Male
-            <input type="radio" name="gender" value="female">Female<br>
-
-
-            <input type="submit" value="SUBMIT">
-            <input type="submit" value="FIND ANOTHER" onClick="clearInput()">
-
-        </form>
-
-    </div>
+    <script src="JavaScript/scripts.js"></script>
 
 </body>
 
