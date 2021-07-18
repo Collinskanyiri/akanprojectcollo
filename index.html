@@ -43,6 +43,30 @@
                 <li>Saturday: Ama</li>
             </ul>
         </div>
+    </div>
+    <div class="date-input">
+        <form name="myForm" onsubmit="return aggregateFunctions()">
+
+            <label class="label" id="birthday">Input Your Birthday</label><br>
+            <div id="result"></div><br>
+            <label>Day</label>
+            <input type="text" id="mdate" name="mdate" value="" placeholder="01">
+            <label>Month</label>
+            <input type="text" id="mmonth" name="mmonth" value="" placeholder="12">
+            <label>Year</label>
+            <input type="text" id="myear" name="myear" value="" placeholder="2001">
+            <div id="date"></div>
+
+            <div id="the-gender" class="label">Select Gender</div>
+
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female<br>
+
+
+            <input type="submit" value="SUBMIT">
+            <input type="submit" value="FIND ANOTHER" onClick="clearInput()">
+
+        </form>
 
     </div>
 
