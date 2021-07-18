@@ -112,3 +112,19 @@ function getUserDetails() {
     return userDetails;
 
 }
+
+function aggregateFunctions() {
+    var formValid = validateForm();
+
+    if (!formValid) {
+        validateForm();
+        return false;
+    } {
+        getUserDetails();
+        verifyUserBirthday();
+        findUserAkanName();
+        printUserAkanName();
+        return false;
+
+    }
+}
