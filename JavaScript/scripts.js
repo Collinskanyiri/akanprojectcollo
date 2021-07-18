@@ -22,11 +22,8 @@ var akanArray = [{
 var weekDayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var colorIndex = 0;
 
-
-function changeDOM() {
+function changeToDom() {
     var doc = document.getElementsByTagName("BODY")[0];
-
-
 }
 
 function validateForm() {
@@ -46,6 +43,7 @@ function validateForm() {
         if (!isNaN(mdate.value)) {
             if (mdate.value <= 0 || mdate.value > 31) {
                 document.getElementById("result").innerHTML += "Invalid Day";
+                return false;
             }
         } else {
             document.getElementById("result").innerHTML += "Day must be a number";
@@ -173,13 +171,13 @@ function findUserAkanName() {
                 }
             }
         }
-
     } else if (mGender === "female") {
         var akanArrayObject = akanArray[1];
 
         for (var key in akanArrayObject) {
             if (akanArrayObject.hasOwnProperty(key)) {
                 if (key === dayOfTheWeek) {
+
                     akanName = akanArrayObject[key];
                 }
             }
@@ -188,4 +186,43 @@ function findUserAkanName() {
     } else {
         alert("Error occurred!");
     }
+
+    var importantDetails = {
+        akanName: akanName,
+        dayOfTheWeek: dayOfTheWeek,
+        mGender: mGender
+
+
+    }
+    return importantDetails;
+
+}
+
+
+function printUserAkanName() {
+    clearInterval(changeToDom);
+    var akanDetails = findUserAkanName();
+    akanName = akanDetails.akanName;
+    dayOfTheWeek = akanDetails.dayOfTheWeek;
+    mGender = akanDetails.mGender;
+
+    var doc = document.getElementsByTagName("BODY")[0];
+
+
+
+
+    document.getElementById("myAkan").innerHTML = "WOW!! We found it.Your Akan name is  " + akanName;
+    document.getElementById("reason").innerHTML = 'Since, You are a ' + mGender + ' born on ' + dayOfTheWeek;
+    document.getElementById("myAkan").style.textDecoration = "underline";
+    document.getElementById("myAkan").style.color = 'red';
+    document.getElementById("myAkan").style.fontSize = '45px';
+    document.getElementById("reason").style.color = 'blue';
+    document.getElementById("reason").style.fontSize = '45px';
+
+
+}
+
+//clears the user input form 
+function clearInput() {
+    window.location.reload();
 }
