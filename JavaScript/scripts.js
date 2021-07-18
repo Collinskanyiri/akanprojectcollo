@@ -198,7 +198,6 @@ function findUserAkanName() {
 
 }
 
-
 function printUserAkanName() {
     clearInterval(changeToDom);
     var akanDetails = findUserAkanName();
@@ -222,7 +221,6 @@ function printUserAkanName() {
 
 }
 
-//clears the user input form 
 function clearInput() {
     window.location.reload();
 }
