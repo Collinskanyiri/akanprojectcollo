@@ -1,3 +1,12 @@
 body {
     background-color: greenyellow;
 }
+
+#welcome-message {
+    font-family: fantasy;
+    color: #000;
+}
+
+.main {
+    text-align: left;
+}
