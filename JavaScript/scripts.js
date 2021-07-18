@@ -153,3 +153,39 @@ function verifyUserBirthday() {
     return dayOfWeek;
 
 }
+
+function findUserAkanName() {
+    var userDetailsObject = getUserDetails();
+    mGender = userDetailsObject.myGenderValue;
+    userWeekDayIndex = verifyUserBirthday();
+
+
+    var dayOfTheWeek = weekDayArray[userWeekDayIndex];
+
+    if (mGender === "male") {
+
+        var akanArrayObject = akanArray[0];
+
+        for (var key in akanArrayObject) {
+            if (akanArrayObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    akanName = akanArrayObject[key];
+                }
+            }
+        }
+
+    } else if (mGender === "female") {
+        var akanArrayObject = akanArray[1];
+
+        for (var key in akanArrayObject) {
+            if (akanArrayObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    akanName = akanArrayObject[key];
+                }
+            }
+        }
+
+    } else {
+        alert("Error occurred!");
+    }
+}
