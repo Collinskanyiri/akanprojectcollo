@@ -97,3 +97,27 @@ function validateForm() {
     return formValid;
 
 }
+
+function getUserDetails() {
+    var mdate = parseInt(document.getElementById("mdate").value);
+    var mmonth = parseInt(document.getElementById("mmonth").value);
+    var myear = parseInt(document.getElementById("myear").value);
+    var gender = document.getElementsByName("gender");
+
+    for (var i = 0; i < gender.length; i++) {
+        if (gender[i].checked)
+            var GenderValue = gender[i].value;
+    }
+
+    var userDetails = {
+        mdate: mdate,
+        mmonth: mmonth,
+        myear: myear,
+        myGenderValue: GenderValue,
+
+    }
+
+
+    return userDetails;
+
+}
